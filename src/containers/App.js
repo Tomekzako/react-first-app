@@ -12,7 +12,8 @@ class App extends Component {
         {id: 'dff21', name: 'Adam', age: 32},
         {id: 'asfg13', name: 'Ola', age: 18}
     ],
-    showPersons: false
+    showPersons: false,
+    toggleClicked: 0
   }
 
   deletePersonHandler = (personIndex) => {
@@ -40,7 +41,12 @@ class App extends Component {
 
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
+    this.setState((prevState, props) => {
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      }
+    });
   }
   
   
