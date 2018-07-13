@@ -13,7 +13,8 @@ class App extends Component {
         {id: 'asfg13', name: 'Ola', age: 18}
     ],
     showPersons: false,
-    toggleClicked: 0
+    toggleClicked: 0,
+    authenticated: false
   }
 
   deletePersonHandler = (personIndex) => {
@@ -48,6 +49,10 @@ class App extends Component {
       }
     });
   }
+
+  loginHandler = () => {
+    this.setState({authenticated: true});
+  }
   
   
   render() {
@@ -56,7 +61,8 @@ class App extends Component {
 
      if (this.state.showPersons) {
        persons = (
-          <Persons 
+          <Persons
+            isAuthenticated={this.state.authenticated} 
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangeHandler}/>
@@ -68,6 +74,7 @@ class App extends Component {
         <Cockpit 
           showPersons={this.state.showPersons}
           persons={this.state.persons}
+          login={this.loginHandler}
           clicked={this.togglePersonHandler} />
         {persons}
       </WithClass>

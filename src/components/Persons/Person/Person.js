@@ -5,7 +5,8 @@ import WithClass from '../../../hoc/WithClass';
 
 const person = (props) => {
     return (
-        <WithClass classes={classes.Person}>
+        <WithClass classes={classes.Person}> 
+            {props.authenticated ? <p>I'm authenticated!</p> : null}
              <p onClick={props.click}>I'm {props.name} and I am {props.age} years old.</p>
              <p>{props.children}</p>
              <input type="text" onChange={props.changed} value={props.name} />
