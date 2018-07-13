@@ -7,7 +7,6 @@ const persons = (props) => props.persons.map( (person, index) => {
           changed={(e) => props.changed(e, person.id)}
           key={person.id}  
           name={person.name}
-          authenticated={props.isAuthenticated} 
           age={person.age}/>
       });
 
